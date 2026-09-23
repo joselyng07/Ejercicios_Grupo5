@@ -330,7 +330,7 @@ generadas mediante ciclos `for` anidados.
 
 > Las imágenes pueden colocarse en una carpeta llamada `evidencias/`.
 
-Ejemplo:
+-Ejemplo:
 
 ```text
 evidencias/
