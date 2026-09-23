@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Ejercicio3Pares {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n;
+        int cantidad = 0;
+        int suma = 0;
+        double promedio;
+
+        do {
+            System.out.print("Ingrese un numero entero positivo: ");
+            n = sc.nextInt();
+
+            if (n <= 0) {
+                System.out.println("Valor invalido. Debe ser positivo.");
+            }
+
+        } while (n <= 0);
+
+        System.out.println("\nSerie:");
+
+        for (int i = 2; i <= n; i += 2) {
+
+            System.out.print(i + " ");
+
+            cantidad++;
+            suma += i;
+        }
+
+        if (cantidad > 0) {
+            promedio = (double) suma / cantidad;
+        } else {
+            promedio = 0;
+        }
+
+        System.out.println("\nCantidad de pares: " + cantidad);
+        System.out.println("Suma: " + suma);
+        System.out.println("Promedio: " + promedio);
+
+        sc.close();
+    }
+}
