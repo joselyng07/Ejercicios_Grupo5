@@ -1,0 +1,126 @@
+import java.util.Scanner;
+public class ControlVentasCafeteria {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ int ventas = 0;
+ int cafe = 0, sandwich = 0, jugo = 0, empanada = 0;
+ int cantidadTotal = 0;
+ double totalRecaudado = 0;
+ int opcion;
+ do {
+ System.out.println("\n================================");
+ System.out.println(" CAFETERÍA UNIVERSITARIA");
+ System.out.println("================================");
+ System.out.println("1. Registrar venta");
+ System.out.println("2. Mostrar estadísticas");
+ System.out.println("3. Mostrar tabla de productos");
+ System.out.println("4. Salir");
+ System.out.println("================================");
+ System.out.print("Seleccione una opción: ");
+ while (!sc.hasNextInt()) {
+ System.out.print("Ingrese una opción válida: ");
+ sc.next();
+ }
+ opcion = sc.nextInt();
+ switch (opcion) {
+ case 1:
+ int producto;
+do {
+ System.out.println("\n1. Café - $1.00");
+ System.out.println("2. Sándwich - $2.50");
+ System.out.println("3. Jugo - $1.50");
+ System.out.println("4. Empanada - $1.25");
+ System.out.print("Seleccione el producto: ");
+while (!sc.hasNextInt()) {
+ System.out.print("Ingrese un número válido: ");
+sc.next();
+ }
+producto = sc.nextInt();
+ } while (producto < 1 || producto > 4);
+ int cantidad;
+do {
+ System.out.print("Ingrese la cantidad: ");
+while (!sc.hasNextInt()) {
+ System.out.print("Ingrese una cantidad válida: ");
+sc.next();
+ }
+cantidad = sc.nextInt();
+if (cantidad <= 0) {
+ System.out.println("La cantidad debe ser mayor que
+cero.");
+ }
+ } while (cantidad <= 0);
+ double precio = 0;
+ switch (producto) {
+ case 1:
+ precio = 1.00;
+cafe += cantidad;
+break;
+ case 2:
+ precio = 2.50;
+sandwich += cantidad;
+break;
+ case 3:
+ precio = 1.50;
+jugo += cantidad;
+break;
+ case 4:
+ precio = 1.25;
+empanada += cantidad;
+break;
+ }
+ double subtotal = precio * cantidad;
+ventas++;
+cantidadTotal += cantidad;
+totalRecaudado += subtotal;
+ System.out.printf("Venta registrada. Subtotal: $%.2f%n",
+subtotal);
+ break;
+ case 2:
+ System.out.println("\n===== ESTADÍSTICAS =====");
+if (ventas == 0) {
+ System.out.println("No existen ventas registradas.");
+ } else {
+ double promedio = totalRecaudado / ventas;
+String mayorProducto = "Café";
+int mayorCantidad = cafe;
+ if (sandwich > mayorCantidad) {
+ mayorCantidad = sandwich;
+mayorProducto = "Sándwich";
+ }
+if (jugo > mayorCantidad) {
+ mayorCantidad = jugo;
+mayorProducto = "Jugo";
+ }
+if (empanada > mayorCantidad) {
+ mayorCantidad = empanada;
+mayorProducto = "Empanada";
+ }
+ System.out.println("Número de ventas: " + ventas);
+System.out.println("Cantidad total de productos: " +
+cantidadTotal);
+ System.out.printf("Total recaudado: $%.2f%n",
+totalRecaudado);
+ System.out.printf("Promedio por venta: $%.2f%n", promedio);
+System.out.println("Producto con mayor cantidad vendida: "
+ + mayorProducto + " (" + mayorCantidad + ")");
+ }
+break;
+ case 3:
+ System.out.println("\n===== TABLA DE PRODUCTOS =====");
+System.out.println("Café $1.00");
+System.out.println("Sándwich $2.50");
+System.out.println("Jugo $1.50");
+System.out.println("Empanada $1.25");
+break;
+ case 4:
+ System.out.println("Programa finalizado.");
+break;
+ default:
+ System.out.println("Opción no válida.");
+ }
+ } while (opcion != 4);
+ sc.close();
+ }
+}
+7. PRUEBA DE ESCRITOR
