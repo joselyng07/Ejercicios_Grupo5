@@ -1,0 +1,40 @@
+import java.util.Scanner;
+  public class TrianguloYPatrones {
+     public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+       int n;
+       do {
+       System.out.print("Ingrese un número entre 2 y 10: ");
+     while (!sc.hasNextInt()) {
+     System.out.print("Ingrese un número entero válido: ");
+       sc.next();
+       }
+     n = sc.nextInt();
+       if (n < 2 || n > 10) {
+     System.out.println("El número debe estar entre 2 y 10.");
+     }
+     } while (n < 2 || n > 10);
+     System.out.println("\nTriángulo creciente:");
+     for (int i = 1; i <= n; i++) {
+     for (int j = 1; j <= i; j++) {
+       System.out.print("*");
+     }
+     System.out.println();
+     }
+     System.out.println("\nTriángulo decreciente:");
+       for (int i = n; i >= 1; i--) {
+     for (int j = 1; j <= i; j++) {
+       System.out.print("*");
+   }
+     System.out.println();
+   }
+     System.out.println("\nPatrón numérico:");
+       for (int i = 1; i <= n; i++) {
+       for (int j = 1; j <= i; j++) {
+     System.out.print(j);
+     }
+       System.out.println();
+     }
+     sc.close();
+   }
+ }
